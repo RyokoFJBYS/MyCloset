@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image_id: MyString
+  type: 1
+  color: 1
+  pattern: 1
+  season: 1
+  introduction: MyString
+
+two:
+  name: MyString
+  image_id: MyString
+  type: 1
+  color: 1
+  pattern: 1
+  season: 1
+  introduction: MyString
