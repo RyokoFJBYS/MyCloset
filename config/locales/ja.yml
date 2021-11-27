@@ -1,0 +1,6 @@
+ja:
+  enums:
+    user:
+      status:
+        released: '公開'
+        nonreleased: '非公開'

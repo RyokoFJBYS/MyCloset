@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/adc8ff6a3d.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,14 +15,35 @@
 
     <% if user_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "Top", root_path %>
+      </li>
+      <li>
+        <%= link_to "User Top", users_path %>
+      </li>
+      <li>
+        <%= link_to "User Edit", edit_user_path(user) %>
+      </li>
+      <li>
+        <%= link_to "Item", items_path %>
+      </li>
+      <li>
+        <%= link_to "Post", posts_path %>
+      </li>
+      <li>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "Top", root_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "Adout", about_path %>
+      </li>
+      <li>
+        <%= link_to "Sign in", new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
       </li>
     <% end %>
   </body>
