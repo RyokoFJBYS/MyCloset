@@ -18,10 +18,10 @@
         <%= link_to "Top", root_path %>
       </li>
       <li>
-        <%= link_to "User Top", users_path %>
+        <%= link_to "User Top", user_path(current_user) %>
       </li>
       <li>
-        <%#= link_to "User Edit", edit_user_path(user.id) %>
+        <%= link_to "User Edit", edit_user_path(current_user) %>
       </li>
       <li>
         <%= link_to "Item", items_path %>

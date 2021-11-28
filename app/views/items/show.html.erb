@@ -1,2 +1,23 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<h1><%= @item.name %></h1>
+
+<div>
+  <div>
+    <%= attachment_image_tag @item, :image, :fill, 400, 300 %>
+  </div>
+  <div>
+    <p>Type：<%= @item.type_i18n %></p>
+    <p>Color：<%= @item.color_i18n %></p>
+    <p>Pattern：<%= @item.patterni18n %></p>
+    <p>Season：<%= @item.season_i18n %></p>
+  </div>
+</div>
+
+<div>
+  Memo<br>
+  <%= @item.introduction %>
+</div>
+
+<div>
+  <%= link_to "Edit", edit_item_path(itam.id) %>
+  <%= link_to "Back", request.referer %>
+</div>

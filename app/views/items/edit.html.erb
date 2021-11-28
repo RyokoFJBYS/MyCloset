@@ -1,2 +1,37 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<h1>Item Edit</h1>
+
+<%= form_with model: @item, local:true do |f| %>
+  <h4>Name</h4>
+  <%= f.text_field :name %>
+  
+  <h4>Image</h4>
+  <%= f.attachment_field :image %>
+  
+  <h4>introduction</h4>
+  <%= f.text_area :Introduction %>
+  
+  <h4>Type</h4>
+  <%= f.select :type, Item.types_i18n.invert, { include_blank: '-- 選択してください --'} %>
+  
+  <h4>Color</h4>
+  <%= f.select :color, Item.colors_i18n.invert, { include_blank: '-- 選択してください --'} %>
+  
+  <h4>Pattern</h4>
+  <%= f.select :pattern, Item.patterns_i18n.invert, { include_blank: '-- 選択してください --'} %>
+  
+  <h4>Season</h4>
+  <%= f.check_box :season %>
+  <%= f.label :season, Item.seasons_i18n[:spring] %>
+  <%= f.check_box :season %>
+  <%= f.label :season, Item.seasons_i18n[:summer] %>
+  <%= f.check_box :season %>
+  <%= f.label :season, Item.seasons_i18n[:autumn] %>
+  <%= f.check_box :season %>
+  <%= f.label :season, Item.seasons_i18n[:winter] %>
+  
+  <div>
+    <%= f.submit 'Update' %>
+    <%= link_to "Back", request.referer %>
+  </div>
+  
+<% end %>

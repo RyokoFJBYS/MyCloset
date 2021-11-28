@@ -30,6 +30,7 @@
 * [ER図](https://drive.google.com/file/d/1UxbZloSHlkFP7GVTigV769EKW_PgvbtM/view?usp=sharing)
 * [テーブル定義書](https://docs.google.com/spreadsheets/d/14JtBB7xzpSqiCbv_cGtdVzVsWYoITN7Jbw8Vp2ZlC9E/edit?usp=sharing)
 * [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1Yy5wlo62oBIUGb_aDgjLrMODDy2Jlr-T/edit?usp=sharing&ouid=108188291934304353700&rtpof=true&sd=true)
+* [UI Flows](https://drive.google.com/file/d/1hJwr6Ob-nkU7QnkxbjiVJuNDEfErWPWn/view?usp=sharing)
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/18c6YSQACMw2a2uUTyuHCwJ2hSAhDSbEEelM--WiHG4Q/edit?usp=sharing>

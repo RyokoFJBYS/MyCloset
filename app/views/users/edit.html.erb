@@ -1,6 +1,6 @@
 <h1>User Edit</h1>
 
-<%= form_with model:@user, url:users_path, local: true do |f| %>
+<%= form_with model:@user, url:user_path, local: true do |f| %>
   <h4>Name</h4>
   <%= f.text_field :name %>
   <h4>Email</h4>
@@ -12,7 +12,7 @@
     <%= f.label :非公開 %>
   <div>
     <%= f.submit 'Update' %>
-    <%= link_to "Delete", unsubscribe_user_path, class: "btn btn-danger mx-5" %>
+    <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-danger mx-5" %>
   </div>
 
 <% end %>

@@ -4,7 +4,7 @@ ja:
       status:
         released: '公開'
         nonreleased: '非公開'
-  
+
     item:
       type:
         bottoms: 'ボトムス'
@@ -27,7 +27,7 @@ ja:
         gray: 'グレー系'
         beige: 'ベージュ系'
         colorful: 'カラフル'
-        other: 'その他'
+        other_color: 'その他'
       pattern:
         plain: '無地'
         plaid: 'チェック'
@@ -44,7 +44,7 @@ ja:
         native: 'ネイティブ'
         houndstooth: '千鳥格子'
         geometry: '幾何学模様'
-        other: 'その他'
+        other_pattern: 'その他'
       season:
         spring: '春'
         summer: '夏'
