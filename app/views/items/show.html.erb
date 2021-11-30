@@ -7,7 +7,7 @@
   <div>
     <p>Type：<%= @item.type_i18n %></p>
     <p>Color：<%= @item.color_i18n %></p>
-    <p>Pattern：<%= @item.patterni18n %></p>
+    <p>Pattern：<%= @item.pattern_i18n %></p>
     <p>Season：<%= @item.season_i18n %></p>
   </div>
 </div>
@@ -18,6 +18,6 @@
 </div>
 
 <div>
-  <%= link_to "Edit", edit_item_path(itam.id) %>
+  <%= link_to "Edit", edit_item_path(@item) %>
   <%= link_to "Back", request.referer %>
 </div>

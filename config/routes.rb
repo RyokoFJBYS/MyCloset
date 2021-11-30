@@ -4,13 +4,14 @@ Rails.application.routes.draw do
 
   resources :items
 
+  devise_for :users
+
   resources :users, only: [:show, :edit, :update] do
     member do
       get   'unsubscribe'
       patch 'withdraw'
     end
   end
-  devise_for :users
 
   root to: 'homes#top'
   get "about" => "homes#about"
