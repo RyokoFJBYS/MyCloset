@@ -24,6 +24,7 @@ ja:
         navy: '紺色系'
         purple: '紫色系'
         pink: '桃色系'
+        brown: '茶色系'
         gray: 'グレー系'
         beige: 'ベージュ系'
         colorful: 'カラフル'
@@ -50,3 +51,4 @@ ja:
         summer: '夏'
         autumn: '秋'
         winter: '冬'
+        all_season: 'All'

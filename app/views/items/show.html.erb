@@ -5,10 +5,10 @@
     <%= attachment_image_tag @item, :image, :fill, 400, 300 %>
   </div>
   <div>
-    <p>Type：<%= @item.type_i18n %></p>
-    <p>Color：<%= @item.color_i18n %></p>
-    <p>Pattern：<%= @item.pattern_i18n %></p>
-    <p>Season：<%= @item.season_i18n %></p>
+    <p>Type：<%= @item.type.name if @item.type != nil %></p>
+    <p>Color：<%= @item.color.name if @item.color != nil %></p>
+    <p>Pattern：<%= @item.pattern.name if @item.pattern != nil %></p>
+    <p>Season：<%= @item.season.name if @item.season != nil %></p>
   </div>
 </div>
 

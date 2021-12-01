@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def show
@@ -37,10 +38,10 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :image, :introduction)
           .merge(
-            type: params['item']['type'].to_i,
-            color: params['item']['color'].to_i,
-            pattern: params['item']['pattern'].to_i,
-            season: params['item']['season'].to_i
+            type: Type.find(params['item']['type'].to_i),
+            color: Color.find(params['item']['color'].to_i),
+            pattern: Pattern.find(params['item']['pattern'].to_i),
+            season: Season.find(params['item']['season'].to_i)
             )
   end
 

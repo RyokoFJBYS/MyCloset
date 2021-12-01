@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_153553) do
+ActiveRecord::Schema.define(version: 2021_12_01_121432) do
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_ja"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,13 +25,18 @@ ActiveRecord::Schema.define(version: 2021_11_21_153553) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "image_id"
-    t.integer "type"
-    t.integer "color"
-    t.integer "pattern"
-    t.integer "season"
     t.string "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type_id"
+    t.integer "color_id"
+    t.integer "pattern_id"
+    t.integer "season_id"
+  end
+
+  create_table "patterns", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_ja"
   end
 
   create_table "post_item_relations", force: :cascade do |t|
@@ -40,6 +50,16 @@ ActiveRecord::Schema.define(version: 2021_11_21_153553) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_ja"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_ja"
   end
 
   create_table "users", force: :cascade do |t|

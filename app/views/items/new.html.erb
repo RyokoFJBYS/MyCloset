@@ -11,16 +11,16 @@
   <%= f.text_area :introduction %>
 
   <h4>Type</h4>
-  <%= f.select :type, Item.types.map{|key, value| [I18n.t("enums.item.type.#{key}"), value]}, { include_blank: '-- 選択してください --'} %>
+  <%= f.select :type, options_for_select(Type.all.pluck("name_#{I18n.locale}, id"), @item.type_id), { include_blank: '-- 選択してください --'} %>
 
   <h4>Color</h4>
-  <%= f.select :color, Item.colors.map{|key, value| [I18n.t("enums.item.color.#{key}"), value]}, { include_blank: '-- 選択してください --'} %>
+  <%= f.select :color, options_for_select(Color.all.pluck("name_#{I18n.locale}, id"), @item.color_id), { include_blank: '-- 選択してください --'} %>
 
   <h4>Pattern</h4>
-  <%= f.select :pattern, Item.patterns.map{|key, value| [I18n.t("enums.item.pattern.#{key}"), value]}, { include_blank: '-- 選択してください --'} %>
+  <%= f.select :pattern, options_for_select(Pattern.all.pluck("name_#{I18n.locale}, id"), @item.pattern_id), { include_blank: '-- 選択してください --'} %>
 
   <h4>Season</h4>
-  <%= f.select :season, Item.seasons.map{|key, value| [I18n.t("enums.item.season.#{key}"), value]}, { include_blank: '-- 選択してください --'} %>
+  <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '-- 選択してください --'} %>
 
   <%#= f.check_box :season, {}, "spring", "" %>
   <%#= f.label :season, Item.seasons_i18n[:spring] %>
