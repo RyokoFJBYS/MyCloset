@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Item　  Forces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item　__forces.each do |item　__force| %>
+      <tr>
+        <td><%= link_to 'Show', item　__force %></td>
+        <td><%= link_to 'Edit', edit_item　__force_path(item　__force) %></td>
+        <td><%= link_to 'Destroy', item　__force, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item　  Force', new_item　__force_path %>
