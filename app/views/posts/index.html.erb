@@ -1,5 +1,13 @@
 <h1>Posts</h1>
 
+<% if @tags.present? %>
+ <% @tags.each do |tag| %>
+ <%= link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name) %>
+ <% end %>
+<% else %>
+ 登録されているタグはありません
+<% end %>
+
 <% @posts.each do |post| %>
 <div>
   <%= attachment_image_tag post_image, :image, :fill, 400, 300 %>

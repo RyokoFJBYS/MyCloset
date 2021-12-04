@@ -4,5 +4,7 @@ class Post < ApplicationRecord
   # has_many :post_item_relations, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :image
+  
+  acts_as_taggable
 
 end
