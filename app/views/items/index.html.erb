@@ -1,17 +1,17 @@
 <h1>Items</h1>
 
 <h3>Item Search</h3>
-<%= search_form_for @q, url: search_items_path do |f| %>
+<%= search_form_for @d, url: search_items_path do |f| %>
   <%= f.label :name_cont, 'Item Name' %>
   <%= f.search_field :name_cont %>
   <%= f.label :type, 'Type' %>
-  <%= f.select :type, options_for_select(Type.all.pluck("name_#{I18n.locale}, id"), @item.type_id), { include_blank: '指定なし'} %>
+  <%= f.collection_select :type, @item, :type, :type,  include_blank: '指定なし' %>
   <%= f.label :color, 'Color' %>
-  <%= f.select :color, options_for_select(Color.all.pluck("name_#{I18n.locale}, id"), @item.color_id), { include_blank: '指定なし'} %>
+  <%= f.collection_select :color, @item, :color, :color,  include_blank: '指定なし' %>
   <%= f.label :pattern, 'Pattern' %>
-  <%= f.select :pattern, options_for_select(Pattern.all.pluck("name_#{I18n.locale}, id"), @item.pattern_id), { include_blank: '指定なし'} %>
+  <%= f.collection_select :pattern, @item, :pattern, :pattern,  include_blank: '指定なし' %>
   <%= f.label :season, 'Season' %>
-  <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '指定なし'} %>
+  <%= f.collection_select :season, @item, :season, :season,  include_blank: '指定なし' %>
   <br>
   <%= f.submit 'Search' %>
 <% end %>
