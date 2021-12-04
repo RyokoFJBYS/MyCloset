@@ -5,13 +5,13 @@
   <%= f.label :name_cont, 'Item Name' %>
   <%= f.search_field :name_cont %>
   <%= f.label :type, 'Type' %>
-  <%= f.collection_select :type, @item, :type, :type,  include_blank: '指定なし' %>
+  <%= f.collection_select :type_name_ja_eq, Type.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
   <%= f.label :color, 'Color' %>
-  <%= f.collection_select :color, @item, :color, :color,  include_blank: '指定なし' %>
+  <%= f.collection_select :color_name_ja_eq, Color.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
   <%= f.label :pattern, 'Pattern' %>
-  <%= f.collection_select :pattern, @item, :pattern, :pattern,  include_blank: '指定なし' %>
+  <%= f.collection_select :pattern_name_ja_eq, Pattern.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
   <%= f.label :season, 'Season' %>
-  <%= f.collection_select :season, @item, :season, :season,  include_blank: '指定なし' %>
+  <%= f.collection_select :season_name_ja_eq, Season.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
   <br>
   <%= f.submit 'Search' %>
 <% end %>

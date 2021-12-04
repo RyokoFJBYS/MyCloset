@@ -22,15 +22,6 @@
   <h4>Season</h4>
   <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '-- 選択してください --'} %>
 
-  <%#= f.check_box :season, {}, "spring", "" %>
-  <%#= f.label :season, Item.seasons_i18n[:spring] %>
-  <%#= f.check_box :season, {}, "summer", "" %>
-  <%#= f.label :season, Item.seasons_i18n[:summer] %>
-  <%#= f.check_box :season, {}, "autumn", "" %>
-  <%#= f.label :season, Item.seasons_i18n[:autumn] %>
-  <%#= f.check_box :season, {}, "winter", ""%>
-  <%#= f.label :season, Item.seasons_i18n[:winter] %>
-
   <div>
     <%= f.submit 'Create' %>
     <%= link_to "Back", request.referer %>

@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_q, only: [:index, :search]
-  
+  before_action :search_item, only: [:index, :search]
+
   def index
     @items = Item.all
-    
+
   end
 
   def show
@@ -35,17 +35,17 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to items_path
   end
-  
+
   def search
     @results = @d.result
   end
 
   private
-   
+
   def search_item
     @d = Item.ransack(params[:q])
   end
-   
+
 
   def item_params
     params.require(:item).permit(:name, :image, :introduction)
