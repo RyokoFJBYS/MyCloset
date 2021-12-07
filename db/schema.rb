@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 2021_12_04_123029) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -40,16 +44,22 @@ ActiveRecord::Schema.define(version: 2021_12_04_123029) do
   end
 
   create_table "post_item_relations", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_post_item_relations_on_item_id"
+    t.index ["post_id"], name: "index_post_item_relations_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "body"
     t.string "image_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -95,7 +105,7 @@ ActiveRecord::Schema.define(version: 2021_12_04_123029) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

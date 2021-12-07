@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
+  get "tag" => "posts#tag"
 
   devise_for :users
 

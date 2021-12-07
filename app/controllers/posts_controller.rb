@@ -4,6 +4,12 @@ class PostsController < ApplicationController
     @tags = Post.tag_counts_on(:tags).most_used(20)
   end
 
+  def tag
+    @tags = Post.tag_counts_on(:tags).most_used(20)
+    @tag = params[:tag]
+    @post = Post.tagged_with(params[:tag])
+  end
+
   def show
     @post = Post.find(params[:id])
     @tags = @post.tag_counts_on(:tags)

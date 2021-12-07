@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :pattern
       t.integer :season
       t.string :introduction
+      
 
       t.timestamps
     end
