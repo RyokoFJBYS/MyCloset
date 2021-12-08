@@ -71,3 +71,5 @@ gem "refile-mini_magick"
 gem 'ransack'
 
 gem 'acts-as-taggable-on', '~> 6.0'
+
+gem 'simple_calendar', '~> 2.0'

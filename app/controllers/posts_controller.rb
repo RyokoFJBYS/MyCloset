@@ -6,8 +6,7 @@ class PostsController < ApplicationController
 
   def tag
     @tags = Post.tag_counts_on(:tags).most_used(20)
-    @tag = params[:tag]
-    @post = Post.tagged_with(params[:tag])
+    @post = Post.tagged_with(params[:format])
   end
 
   def show
@@ -46,7 +45,7 @@ class PostsController < ApplicationController
    private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :user_id, :tag_list)
+    params.require(:post).permit(:title, :body, :image, :user_id, :tag_list, :start_time)
   end
 
 end

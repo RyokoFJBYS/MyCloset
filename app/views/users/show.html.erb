@@ -5,4 +5,16 @@
   <%= @user.status %>
 </p>
 
-<h3>Coordinate</h3>
+<h3>Calendar</h3>
+
+<%= link_to 'Add Post', new_post_path %>
+
+<%= month_calendar events: @posts do |date, posts| %>
+  <%= date.day %>
+
+  <% @posts.each do |post| %>
+    <div>
+      <%= link_to post.title, post %>
+    </div>
+  <% end %>
+<% end %>

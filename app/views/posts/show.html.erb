@@ -12,8 +12,13 @@
   </div>
 </div>
 
-<div>
-  Tag：<%= @tags.name %>
+<div style="display:flex;margin-bottom: 16px;">
+  Tag：
+  <ul style="list-style:none;display:flex;gap:8px;margin: 0;padding-left:8px;">
+    <% @tags.each do |tag| %>
+    <li><%= tag.name %></li>
+    <% end %>
+  </ul>
 </div>
 
 <div>

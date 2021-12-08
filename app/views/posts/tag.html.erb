@@ -9,8 +9,8 @@
 <% end %>
 
 <% if @post.present? %>
-  <h3>Posts about #{@tag}</h3>
-  <%= @post.each do |post| %>
+  <h3>Posts about <%= "#{params[:format]}" %></h3>
+  <% @post.each do |post| %>
   <div>
     <%= attachment_image_tag post, :image, :fill, 400, 300 %>
     <p>Title：<%= link_to post.title, post_path(post.id) %></p>
