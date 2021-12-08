@@ -5,7 +5,7 @@
     <%= attachment_image_tag @post, :image, :fill, 400, 300 %>
   </div>
   <div>
-    <p>Date：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+    <p>Date：<%= @post.start_time.strftime('%Y/%m/%d') %></p>
     <p>
       Memo<br><%= @post.body %>
     </p>
