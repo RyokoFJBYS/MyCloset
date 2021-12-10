@@ -5,6 +5,11 @@ class UsersController < ApplicationController
      @posts = Post.all
   end
 
+  def favorites
+    @user = User.find_by(id: params[:id])
+    @favorites = Favorite.where(user_id: @user.id)
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -17,6 +22,12 @@ class UsersController < ApplicationController
 
   def unsubscribe
     @user = current_user
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   private

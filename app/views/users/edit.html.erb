@@ -12,7 +12,7 @@
     <%= f.label :非公開 %>
   <div>
     <%= f.submit 'Update' %>
-    <%= link_to "Delete", user_path(@user), method: :delete, class: "btn btn-danger mx-5" %>
+    <%= link_to "Delete", unsubscribe_user_path(@user), class: "btn btn-danger mx-5" %>
   </div>
 
 <% end %>

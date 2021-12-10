@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     member do
       get   'unsubscribe'
-      patch 'withdraw'
+      get :favorites
     end
   end
 
