@@ -1,16 +1,18 @@
-<h1>My Closet</h1>
+<h1 class ="text-center my-3">My Closet</h1>
 
-<div>
-  <%= image_tag 'closet.jpg', :size =>'480x320' %>
-  <span>手持ちの服を登録しいつでもどこでもクローゼットの中身を確認</span>
-</div>
+<div class = "mx-auto my-5" style = "width: 80%;">
+  <div class = "d-flex justify-content-between align-items-center" style="height:320px;">
+    <%= image_tag 'closet.jpg', :size =>'480x320' %>
+    <p>手持ちの服を登録しいつでもどこでもクローゼットの中身を確認</p>
+  </div>
 
-<div>
-  <span>登録した服を投稿し、日々のコーディネートを共有</span>
-  <%= image_tag 'coordination.jpg', :size =>'480x320' %>
-</div>
+  <div class = "d-flex justify-content-between align-items-center" style="height:320px;">
+    <p>登録した服を投稿し、日々のコーディネートを共有</p>
+    <%= image_tag 'coordination.jpg', :size =>'480x320' %>
+  </div>
 
-<div>
-  <%= image_tag 'welcome.jpg', :size =>'480x320' %>
-  <span>登録は簡単！さあ、始めてみよう　→　<%= link_to "Sign up", new_user_registration_path %></span>
+  <div class = "d-flex justify-content-between align-items-center" style="height:320px;">
+    <%= image_tag 'welcome.jpg', :size =>'480x320' %>
+    <p>登録は簡単！さあ、始めてみよう　→　<%= link_to "Sign up", new_user_registration_path %></p>
+  </div>
 </div>

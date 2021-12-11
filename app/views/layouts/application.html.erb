@@ -11,40 +11,47 @@
   </head>
 
   <body>
-    <%= yield %>
-
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Top", root_path %>
-      </li>
-      <li>
-        <%= link_to "User Top", user_path(current_user) %>
-      </li>
-      <li>
-        <%= link_to "User Edit", edit_user_path(current_user) %>
-      </li>
-      <li>
-        <%= link_to "Item", items_path %>
-      </li>
-      <li>
-        <%= link_to "Post", posts_path %>
-      </li>
-      <li>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Top", root_path %>
-      </li>
-      <li>
-        <%= link_to "Adout", about_path %>
-      </li>
-      <li>
-        <%= link_to "Sign in", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-    <% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-10">
+           <%= yield %>
+        </div>
+        <div class="col-lg-2" style="margin-top:100px;">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Top", root_path %>
+            </li>
+            <li>
+              <%= link_to "User Top", user_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "User Edit", edit_user_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "Item", items_path %>
+            </li>
+            <li>
+              <%= link_to "Post", posts_path %>
+            </li>
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Top", root_path %>
+            </li>
+            <li>
+              <%= link_to "Adout", about_path %>
+            </li>
+            <li>
+              <%= link_to "Sign in", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

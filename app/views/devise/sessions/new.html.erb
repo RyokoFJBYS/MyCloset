@@ -1,19 +1,29 @@
-<h2>Sign in</h2>
+<div style="width: 100%; background: #fafafa;">
+  <h2 class ="text-center pt-5" style="margin-top:100px; background: #fafafa;">Sign In</h2>
 
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mx-auto my-4" style="width:50%; background: #fafafa;">
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "border: none" %>
+      </div>
+
+      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", style: "border: none" %>
+      </div>
+
+      <div class="section1 text-center">
+        <button type="submit" class="btn" style="background:#f16272; color:#fafafa;">
+          Sign In
+        </button>
+      </div>
+
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <p class ="text-center pb-5" style="background: #fafafa;">
+    <%= link_to "Create on Account", new_user_registration_path %>
+  </p>
 
-  <div class="actions">
-    <%= f.submit "Sign in" %>
-  </div>
-<% end %>
-
-<%= link_to "Create on Account", new_user_registration_path %>
+</div>

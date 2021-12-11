@@ -1,13 +1,13 @@
 <h1>Favorite Index</h1>
 <% @favorites.each do |favorite|%>
-  <%= post = post.find_by(id: favorite.post_id) %>
+  <% post = Post.find(favorite.post_id) %>
 
   <div>
-  <%= attachment_image_tag post, :image, :fill, 400, 300 %>
-  <p>Title：<%= link_to post.title, post_path(post.id) %></p>
-  <p>Date：<%= post.created_at.strftime('%Y/%m/%d') %>
-   <span>♥<%= post.favorites.count %>Favorite</span>
-  </p>
-  <p>Name：<%= post.user.name %></p>
-</div>
+    <%= attachment_image_tag post, :image, :fill, 400, 300 %>
+    <p>Title：<%= link_to post.title, post_path(post.id) %></p>
+    <p>Date：<%= post.created_at.strftime('%Y/%m/%d') %>
+     <span>♥<%= post.favorites.count %>Favorite</span>
+    </p>
+    <p>Name：<%= post.user.name %></p>
+  </div>
 <% end %>
