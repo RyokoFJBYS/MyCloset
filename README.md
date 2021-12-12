@@ -45,3 +45,4 @@
 ## 使用素材
 * O-DAN：<http://o-dan.net/ja/>
 * designevo：<https://www.designevo.com/>
+* Font Awesome：<https://fontawesome.com/>

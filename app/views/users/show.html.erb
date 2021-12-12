@@ -1,24 +1,33 @@
-<h1>
-  <%= @user.name %>'s Closet
-</h1>
-<p>
-  <%= @user.status %>
-</p>
+<div class="d-flex justify-content-center my-3">
+  <h1>
+    <%= @user.name %>'s Closet
+  </h1>
+  <h3 class="mx-3">
+    <% if @user.status == 0 %>
+      <i class="fas fa-lock-open"></i>
+    <% else %>
+      <i class="fas fa-lock"></i>
+    <% end %>
+  </h3>
+</div>
 
-<p>
+
+<p class="text-center">
   <%= link_to "♥ Posts", favorites_user_path(@user) %>
 </p>
 
 <h3>Calendar</h3>
 
-<%= link_to 'Add Post', new_post_path %>
+<%= link_to new_post_path do %>
+  <i class="fas fa-edit">Add Post</i>
+<% end %>
 
 <%= month_calendar events: @posts do |date, posts| %>
   <%= date.day %>
-
-  <% posts.each do |post| %>
+    <% posts.each do |post| %>
     <div>
       <%= link_to post.title, post %>
     </div>
   <% end %>
+  </div>
 <% end %>

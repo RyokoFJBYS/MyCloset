@@ -20,27 +20,31 @@
   <%= link_to "Add", new_item_path %>
 </div>
 
-<table class="table-bordered mx-auto">
-  <thead>
-    <th></th>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Color</th>
-    <th>Pattern</th>
-    <th>Season</th>
-    <th></th>
-  </thead>
-  <tbody>
-    <% @results.each do |item| %>
-    <tr>
-      <td><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
-      <td><%= item.name %></td>
-      <td><%= item.type.name if item.type != nil  %></td>
-      <td><%= item.color.name if item.color != nil  %></td>
-      <td><%= item.pattern.name if item.pattern != nil  %></td>
-      <td><%= item.season.name if item.season != nil  %></td>
-      <td><%= link_to "Show", item_path(item.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @results.present? %>
+  <table class="table-bordered mx-auto">
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Color</th>
+      <th>Pattern</th>
+      <th>Season</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @results.each do |item| %>
+      <tr>
+        <td><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
+        <td><%= item.name %></td>
+        <td><%= item.type.name if item.type != nil  %></td>
+        <td><%= item.color.name if item.color != nil  %></td>
+        <td><%= item.pattern.name if item.pattern != nil  %></td>
+        <td><%= item.season.name if item.season != nil  %></td>
+        <td><%= link_to "Show", item_path(item.id) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  該当するアイテムが見つかりません
+<% end %>
