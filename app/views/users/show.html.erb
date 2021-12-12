@@ -3,7 +3,8 @@
     <%= @user.name %>'s Closet
   </h1>
   <h3 class="mx-3">
-    <% if @user.status == 0 %>
+
+    <% if @user.status == "released" %>
       <i class="fas fa-lock-open"></i>
     <% else %>
       <i class="fas fa-lock"></i>

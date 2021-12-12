@@ -1,6 +1,6 @@
 <h1 class ="my-3 text-center">Items</h1>
 
-<div class = "mx-auto my-5" style = "width: 80%;">
+<div class = "mx-auto my-5 width-80">
   <h3>Item Search<i class="fas fa-search ml-1"></i></h3>
   <%= search_form_for @d, url: search_items_path do |f| %>
     <%= f.label :name_cont, 'Item Name' %>
@@ -19,34 +19,36 @@
 
 
 <div class="text-center">
-  <%= link_to new_item_path, class: "btn", style:"background:#fafafa;" do%>
+  <%= link_to new_item_path, class: "btn  bg-white-all" do%>
     <i class="fas fa-tshirt">Add Item</i>
   <% end %>
 </div>
 
-<div style:"background:#fafafa;">
-  <table class="table-bordered mx-auto my-5">
+<div>
+  <table class="table-bordered mx-auto my-5 bg-white-all">
     <thead>
-      <th></th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Color</th>
-      <th>Pattern</th>
-      <th>Season</th>
-      <th></th>
+      <th class="text-center my-3"></th>
+      <th class="text-center my-3">Name</th>
+      <th class="text-center my-3">Type</th>
+      <th class="text-center my-3">Color</th>
+      <th class="text-center my-3">Pattern</th>
+      <th class="text-center my-3">Season</th>
+      <th class="text-center my-3"></th>
     </thead>
     <tbody>
       <% @items.each do |item| %>
       <tr>
-        <td><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
-        <td><%= item.name %></td>
-        <td><%= item.type.name if item.type != nil  %></td>
-        <td><%= item.color.name if item.color != nil  %></td>
-        <td><%= item.pattern.name if item.pattern != nil  %></td>
-        <td><%= item.season.name if item.season != nil  %></td>
-        <td><%= link_to "Show", item_path(item.id) %></td>
+        <td class="text-center my-3"><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
+        <td class="text-center my-3"><%= item.name %></td>
+        <td class="text-center my-3"><%= item.type.name if item.type != nil  %></td>
+        <td class="text-center my-3"><%= item.color.name if item.color != nil  %></td>
+        <td class="text-center my-3"><%= item.pattern.name if item.pattern != nil  %></td>
+        <td class="text-center my-3"><%= item.season.name if item.season != nil  %></td>
+        <td class="text-center my-3"><%= link_to "Show", item_path(item.id), class: "btn mx-3 btn-xs btn-green"%></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<div class="d-flex justify-content-center"><%= paginate @items %></div>

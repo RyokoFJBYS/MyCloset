@@ -1,35 +1,37 @@
-<h2 class ="text-center pt-5" style="margin-top:100px; background: #fafafa;">User Edit</h2>
+<div class="bg-white-all width-100">
+  <h2 class ="text-center pt-5 margin-top">User Edit</h2>
 
-<div class="mx-auto my-4" style="width:30%; background: #fafafa;">
-  <%= form_with model:@user, url:user_path, local: true do |f| %>
-  <div class="field form-inline">
-    <h5 class="mr-3">
-      <i class="fas fa-user mr-1">Name</i>
-    </h5>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field form-inline">
-    <h5 class="mr-3">
-      <i class="far fa-envelope mr-1">Email</i>
-    </h5>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field form-inline">
-    <h5 class="mr-3">
-      <i class="fas fa-user-lock mr-1">Status</i>
-    </h5>
-    <%= f.radio_button :status, :released, checked: "checked"%>
-    <%= f.label :公開 %>
-    <%= f.radio_button :status, :nonreleased %>
-    <%= f.label :非公開 %>
-  </div>
+  <div class="mx-auto my-4 width-30">
+    <%= form_with model:@user, url:user_path, local: true do |f| %>
+    <div class="field form-inline">
+      <h5 class="mr-3">
+        <i class="fas fa-user mr-1">Name</i>
+      </h5>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field form-inline">
+      <h5 class="mr-3">
+        <i class="far fa-envelope mr-1">Email</i>
+      </h5>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field form-inline">
+      <h5 class="mr-3">
+        <i class="fas fa-user-lock mr-1">Status</i>
+      </h5>
+      <%= f.radio_button :status, :released, checked: "checked"%>
+      <%= f.label :公開 %>
+      <%= f.radio_button :status, :nonreleased %>
+      <%= f.label :非公開 %>
+    </div>
 
-  <div class="text-center pb-5">
-    <button type="submit" class="btn" style="background:#99CCFF; color:#fafafa;">
-      Update
-    </button>
-    <%= link_to "Delete", unsubscribe_user_path(@user), class: "btn mx-5", style: "background:#f16272; color:#fafafa;"%>
-  </div>
+    <div class="text-center pb-5">
+      <button type="submit" class="btn btn-blue">
+        Update
+      </button>
+      <%= link_to "Delete", unsubscribe_user_path(@user), class: "btn mx-5 btn-red"%>
+    </div>
 
-<% end %>
+  <% end %>
+  </div>
 </div>

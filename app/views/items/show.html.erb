@@ -1,23 +1,26 @@
-<h1><%= @item.name %></h1>
+<div class="bg-white-all width-100">
+  <h1 class ="my-3 text-center pt-5 width-100"><%= @item.name %></h1>
 
-<div>
-  <div>
-    <%= attachment_image_tag @item, :image, :fill, 400, 300 %>
-  </div>
-  <div>
-    <p>Type：<%= @item.type.name if @item.type != nil %></p>
-    <p>Color：<%= @item.color.name if @item.color != nil %></p>
-    <p>Pattern：<%= @item.pattern.name if @item.pattern != nil %></p>
-    <p>Season：<%= @item.season.name if @item.season != nil %></p>
-  </div>
-</div>
-
-<div>
-  Memo<br>
-  <%= @item.introduction %>
-</div>
-
-<div>
-  <%= link_to "Edit", edit_item_path(@item) %>
-  <%= link_to "Back", request.referer %>
+    <div class="d-flex justify-content-center my-4 width-100">
+      <div class="mx-5">
+        <%= attachment_image_tag @item, :image, :fill, 400, 300 %>
+      </div>
+      <div class="mx-5 my-5">
+        <p>Type：<%= @item.type.name if @item.type != nil %></p>
+        <p>Color：<%= @item.color.name if @item.color != nil %></p>
+        <p>Pattern：<%= @item.pattern.name if @item.pattern != nil %></p>
+        <p>Season：<%= @item.season.name if @item.season != nil %></p>
+        <p>
+          Memo<br>
+          <%= @item.introduction %>
+        </p>
+      </div>
+    </div>
+    
+    
+    
+    <div class="d-flex justify-content-center pb-5 width-100">
+      <%= link_to "Edit", edit_item_path(@item), class: "btn mx-5 btn-green"%>
+      <%= link_to "Back", request.referer, class: "btn mx-5 btn-red"%>
+    </div>
 </div>

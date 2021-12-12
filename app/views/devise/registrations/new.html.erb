@@ -1,45 +1,45 @@
-<div style="width: 100%; background: #fafafa;">
-  <h2 class ="text-center pt-5" style="margin-top:100px; background: #fafafa;">Sign up</h2>
+<div class="bg-white-all width-100">
+  <h2 class ="text-center pt-5 margin-top">Sign up</h2>
   
-  <div class="mx-auto my-4" style="width:50%; background: #fafafa;">
+  <div class="mx-auto my-4 width-50">
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     
-      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+      <div class="field form-inline border-bottom-gray">
         <i class="fas fa-user mr-1"></i>
         <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, style: "border: none" %>
+        <%= f.text_field :name, autofocus: true, class: "border-no"%>
       </div>
     
-      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+      <div class="field form-inline border-bottom-gray">
         <i class="far fa-envelope mr-1"></i>
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "border: none" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-no"%>
       </div>
     
-      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+      <div class="field form-inline border-bottom-gray">
         <i class="fas fa-key mr-1"></i>
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", style: "border: none" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "border-no"%>
       </div>
     
-      <div class="field form-inline" style="border: none;border-bottom: 2px solid #e9e9e9;">
+      <div class="field form-inline border-bottom-gray">
         <i class="fas fa-key mr-1"></i>
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "border: none" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border-no"%>
       </div>
     
       <div class="section1 text-center">
-        <button type="submit" class="btn" style="background:#f16272; color:#fafafa;">
+        <button type="submit" class="btn btn-red">
           Sign Up
         </button>
       </div>
     <% end %>
   </div>
-  <p class ="text-center pb-5" style="background: #fafafa;">
+  <p class ="text-center pb-5">
     <%= link_to "Go to Sign in Page", new_user_session_path %>
   </p>
 </div>

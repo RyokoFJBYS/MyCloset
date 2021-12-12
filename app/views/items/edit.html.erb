@@ -1,30 +1,50 @@
-<h1>Item Edit</h1>
-
-<%= form_with model: @item, local:true do |f| %>
-  <h4>Name</h4>
-  <%= f.text_field :name %>
-
-  <h4>Image</h4>
-  <%= f.attachment_field :image %>
-
-  <h4>introduction</h4>
-  <%= f.text_area :introduction %>
-
-  <h4>Type</h4>
-  <%= f.select :type, options_for_select(Type.all.pluck("name_#{I18n.locale}, id"), @item.type_id), { include_blank: '-- 選択してください --'} %>
-
-  <h4>Color</h4>
-  <%= f.select :color, options_for_select(Color.all.pluck("name_#{I18n.locale}, id"), @item.color_id), { include_blank: '-- 選択してください --'} %>
-
-  <h4>Pattern</h4>
-  <%= f.select :pattern, options_for_select(Pattern.all.pluck("name_#{I18n.locale}, id"), @item.pattern_id), { include_blank: '-- 選択してください --'} %>
-
-  <h4>Season</h4>
-   <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '-- 選択してください --'} %>
-
-  <div>
-    <%= f.submit 'Update' %>
-    <%= link_to "Delete", item_path(@item), method: :delete %>
+<div class="bg-white-all width-100">
+  <h2 class ="text-center pt-5 margin-top">Item Edit</h2>
+  
+  <div class="mx-auto my-4 width-50">
+    <%= form_with model: @item, local:true do |f| %>
+    
+      <div class="field form-inline">
+        <h5 class="mr-3">Name</h5>
+        <%= f.text_field :name %>
+      </div>
+      
+      <div class="field form-inline">
+        <h5 class="mr-3">Image</h5>
+        <%= f.attachment_field :image %>
+      </div>
+      
+      <div class="field form-inline">
+        <h5 class="mr-3">Introduction</h5>
+        <%= f.text_area :introduction %>
+      </div>
+      
+      <div class="field form-inline">
+        <h5 class="mr-3">Type</h5>
+        <%= f.select :type, options_for_select(Type.all.pluck("name_#{I18n.locale}, id"), @item.type_id), { include_blank: '-- 選択してください --'} %>
+      </div>
+      
+      <div class="field form-inline">
+        <h5 class="mr-3">Color</h5>
+        <%= f.select :color, options_for_select(Color.all.pluck("name_#{I18n.locale}, id"), @item.color_id), { include_blank: '-- 選択してください --'} %>
+      </div>
+    
+      <div class="field form-inline">
+        <h5 class="mr-3">Pattern</h5>
+        <%= f.select :pattern, options_for_select(Pattern.all.pluck("name_#{I18n.locale}, id"), @item.pattern_id), { include_blank: '-- 選択してください --'} %>
+      </div>
+      
+      <div class="field form-inline">
+        <h5 class="mr-3">Season</h5>
+        <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '-- 選択してください --'} %>
+      </div>
+      
+      <div class="text-center pb-5">
+        <button type="submit" class="btn btn-blue">
+          Update
+        </button>
+        <%= link_to "Delete", item_path(@item), method: :delete, class: "btn mx-5 btn-red"%>
+      </div>
+      
+    <% end %>
   </div>
-
-<% end %>

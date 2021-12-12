@@ -14,5 +14,7 @@ class Item < ApplicationRecord
 
   # attr_accessor :name, :type
   self.inheritance_column = :_type_disabled
+  
+  
 
 end

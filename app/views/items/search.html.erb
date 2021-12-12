@@ -1,46 +1,49 @@
-<h1>Items</h1>
+<h1 class ="my-3 text-center">Items</h1>
 
-<h3>Item Search</h3>
-<%= search_form_for @d, url: search_items_path do |f| %>
-  <%= f.label :name_cont, 'Item Name' %>
-  <%= f.search_field :name_cont %>
-  <%= f.label :type, 'Type' %>
-  <%= f.collection_select :type_name_ja_eq, Type.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
-  <%= f.label :color, 'Color' %>
-  <%= f.collection_select :color_name_ja_eq, Color.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
-  <%= f.label :pattern, 'Pattern' %>
-  <%= f.collection_select :pattern_name_ja_eq, Pattern.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
-  <%= f.label :season, 'Season' %>
-  <%= f.collection_select :season_name_ja_eq, Season.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
-  <br>
-  <%= f.submit 'Search' %>
-<% end %>
+<div class = "mx-auto my-5 width-80">
+  <h3>Item Search<i class="fas fa-search ml-1"></i></h3>
+  <%= search_form_for @d, url: search_items_path do |f| %>
+    <%= f.label :name_cont, 'Item Name' %>
+    <%= f.search_field :name_cont %>
+    <%= f.label :type, 'Type' %>
+    <%= f.collection_select :type_name_ja_eq, Type.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
+    <%= f.label :color, 'Color' %>
+    <%= f.collection_select :color_name_ja_eq, Color.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
+    <%= f.label :pattern, 'Pattern' %>
+    <%= f.collection_select :pattern_name_ja_eq, Pattern.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
+    <%= f.label :season, 'Season' %>
+    <%= f.collection_select :season_name_ja_eq, Season.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
+    <%= f.submit 'Search' %>
+  <% end %>
+</div>
 
-<div>
-  <%= link_to "Add", new_item_path %>
+<div class="text-center">
+  <%= link_to new_item_path, class: "btn  bg-white-all" do%>
+    <i class="fas fa-tshirt">Add Item</i>
+  <% end %>
 </div>
 
 <% if @results.present? %>
-  <table class="table-bordered mx-auto">
+  <table class="table-bordered mx-auto my-5 bg-white-all">
     <thead>
-      <th></th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Color</th>
-      <th>Pattern</th>
-      <th>Season</th>
-      <th></th>
+      <th class="text-center my-3"></th>
+      <th class="text-center my-3">Name</th>
+      <th class="text-center my-3">Type</th>
+      <th class="text-center my-3">Color</th>
+      <th class="text-center my-3">Pattern</th>
+      <th class="text-center my-3">Season</th>
+      <th class="text-center my-3"></th>
     </thead>
     <tbody>
       <% @results.each do |item| %>
       <tr>
-        <td><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
-        <td><%= item.name %></td>
-        <td><%= item.type.name if item.type != nil  %></td>
-        <td><%= item.color.name if item.color != nil  %></td>
-        <td><%= item.pattern.name if item.pattern != nil  %></td>
-        <td><%= item.season.name if item.season != nil  %></td>
-        <td><%= link_to "Show", item_path(item.id) %></td>
+        <td class="text-center my-3"><%= attachment_image_tag item, :image, :fill, 40, 40 %></td>
+        <td class="text-center my-3"><%= item.name %></td>
+        <td class="text-center my-3"><%= item.type.name if item.type != nil  %></td>
+        <td class="text-center my-3"><%= item.color.name if item.color != nil  %></td>
+        <td class="text-center my-3"><%= item.pattern.name if item.pattern != nil  %></td>
+        <td class="text-center my-3"><%= item.season.name if item.season != nil  %></td>
+        <td class="text-center my-3"><%= link_to "Show", item_path(item.id), class: "btn mx-3 btn-xs btn-green"%></td>
       </tr>
       <% end %>
     </tbody>
