@@ -1,19 +1,25 @@
-<h1>Posts</h1>
+<h1 class ="my-3 text-center">Posts</h1>
 
-<% if @tags.present? %>
- <% @tags.each do |tag| %>
- <%= link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name) %>
+<div class="d-flex justify-content-center flex-wrap mx-auto width-80">
+ <% if @tags.present? %>
+  <% @tags.each do |tag| %>
+  <%= link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name) %>
+  <% end %>
+ <% else %>
+  登録されているタグはありません
  <% end %>
-<% else %>
- 登録されているタグはありません
-<% end %>
-
-<% @posts.each do |post| %>
-<div>
-  <%= attachment_image_tag post, :image, :fill, 400, 300 %>
-  <p>Title：<%= link_to post.title, post_path(post.id) %></p>
-  <p>Date：<%= post.created_at.strftime('%Y/%m/%d') %>
-   <span>♥<%= post.favorites.count %>Favorite</span>
-  </p>
 </div>
-<% end %>
+
+<div class="d-flex justify-content-around flex-wrap">
+ <% @posts.each do |post| %>
+  <div class="text-center my-4 bg-white-all width-30">
+    <%= attachment_image_tag post, :image, :fill, 200, 300, class: "mt-4" %>
+    <p>Title：<%= link_to post.title, post_path(post.id) %></p>
+    <p>Date：<%= post.created_at.strftime('%Y/%m/%d') %></p>
+    <p>♥<%= post.favorites.count %>Favorite</p>
+    <p class="pb-2">User Name：<%= post.user.name %></p>
+  </div>
+ <% end %>
+</div>
+
+<div class="d-flex justify-content-center"><%= paginate @posts %></div>
