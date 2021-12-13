@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def tag
     @tags = Post.tag_counts_on(:tags).most_used(20)
-    @post = Post.tagged_with(params[:format])
+    @post = Post.tagged_with(params[:format]).reverse_order
   end
 
   def show

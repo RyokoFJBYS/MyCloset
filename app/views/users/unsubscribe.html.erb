@@ -1,13 +1,15 @@
-<h1>User Delete</h1>
+<h1 class ="my-3 text-center">User Delete</h1>
 
-<h2>本当にユーザーデータを削除しますか？</h2>
-<p>
-  削除すると登録した洋服のデータや投稿も削除されます<br>
-  削除する場合は「Yes」をクリックしてください
-</p>
-
-<div>
-  <%= link_to "No", user_path(@user), class: "btn btn-primary mx-5" %>
-  <%= link_to "Yse", user_path(@user.id), method: :delete, class: "btn btn-danger mx-5" %>
+<div class="text-center">
+  <h3>本当にユーザーデータを削除しますか？</h3>
+  <p>
+    削除すると登録した洋服のデータや投稿も削除されます<br>
+    削除する場合は「Yes」をクリックしてください
+  </p>
+  
+  <div>
+    <%= link_to "No", user_path(@user), class: "btn btn-primary mx-5" %>
+    <%= link_to "Yse", user_path(@user.id), method: :delete, class: "btn btn-danger mx-5" %>
+  </div>
 </div>
 

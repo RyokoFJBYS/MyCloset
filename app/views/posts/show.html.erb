@@ -1,41 +1,51 @@
-<h1 class ="my-3 text-center"><%= @post.title %></h1>
+<div class="bg-white-all width-80 my-5 mx-auto">
+  <h1 class ="my-3 text-center pt-5 width-100"><%= @post.title %></h1>
+  <div class="mx-auto my-4 bg-white-all width-30">
+    <%= attachment_image_tag @post, :image, :fill, 400, 500 %>
+    <p class="my-3">Memo<br><%= @post.body %></p>
+    <p class="my-3">
+      Tag<br>
+        <% @tags.each do |tag| %>
+        <%= tag.name %>
+        <% end %>
+    </p>
+    <div class="form-inline">
+      <p>Date：<%= @post.start_time.strftime('%Y/%m/%d') %></p>
+      <% if @post.favorited_by?(current_user) %>
+        <p class="pl-5">
+          <%= link_to post_favorites_path(@post), method: :delete do %>
+            ♥<%= @post.favorites.count %> Favorite
+          <% end %>
+        </p>
+        <% else %>
+        <p class="pl-5">
+          <%= link_to post_favorites_path(@post), method: :post do %>
+            ♡<%= @post.favorites.count %> Favorite
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center pb-5 width-100">
+    <%= link_to "Edit", edit_post_path(@post), class: "btn mx-5 btn-green" %>
+    <%= link_to "Back", request.referer, class: "btn mx-5 btn-red" %>
+  </div>
+</div>
+
 
 <div>
+
   <div>
-    <%= attachment_image_tag @post, :image, :fill, 400, 300 %>
-  </div>
-  <div>
-    <p>Date：<%= @post.start_time.strftime('%Y/%m/%d') %></p>
-    <p>
-      Memo<br><%= @post.body %>
-    </p>
+
+
   </div>
 </div>
 
 <div style="display:flex;margin-bottom: 16px;">
-  Tag：
-  <ul style="list-style:none;display:flex;gap:8px;margin: 0;padding-left:8px;">
-    <% @tags.each do |tag| %>
-    <li><%= tag.name %></li>
-    <% end %>
-  </ul>
+
+
 </div>
 
-<% if @post.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :delete do %>
-        ♥<%= @post.favorites.count %> Favorite
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :post do %>
-        ♡<%= @post.favorites.count %> Favorite
-      <% end %>
-    </p>
-  <% end %>
 
-<div>
-  <%= link_to "Edit", edit_post_path(@post) %>
-  <%= link_to "Back", request.referer %>
-</div>
+
+
