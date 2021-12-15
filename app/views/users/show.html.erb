@@ -17,9 +17,27 @@
   <%= link_to "♥ Posts", favorites_user_path(@user) %>
 </p>
 
-<h3>Calendar</h3>
+<h3 class="mt-5">My Post</h3>
+<div class="d-flex justify-content-around flex-wrap">
+ <% @myposts.each do |post| %>
+  <div class="text-center my-4 bg-white-all width-30">
+    <%= attachment_image_tag post, :image, :fill, 200, 300, class: "mt-4" %>
+    <p>Title：<%= link_to post.title, post_path(post.id) %></p>
+    <p>Date：<%= post.created_at.strftime('%Y/%m/%d') %></p>
+    <p>♥<%= post.favorites.count %>Favorite</p>
+    <p class="pb-2">User Name：<%= post.user.name %></p>
+  </div>
+ <% end %>
+</div>
+<div class="text-center">
+  <%= link_to myposts_path, class: "btn  bg-white-all" do%>
+    All My Post >
+  <% end %>
+</div>
 
-<%= link_to new_post_path do %>
+<h3 class="mt-5">Calendar</h3>
+
+<%= link_to new_post_path, class: "btn  bg-white-all" do %>
   <i class="fas fa-edit">Add Post</i>
 <% end %>
 

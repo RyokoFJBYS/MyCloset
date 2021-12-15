@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :search_item, only: [:index, :search]
 
   def index
-    @items = Item.page(params[:page]).per(10)
+    @items = current_user.items.page(params[:page]).per(10)
 
   end
 

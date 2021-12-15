@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
+  get "myposts" => "users#myposts"
 
   root to: 'homes#top'
   get "about" => "homes#about"

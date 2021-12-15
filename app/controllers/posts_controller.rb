@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).reverse_order.per(9)
     @tags = Post.tag_counts_on(:tags).most_used(20)
+    @post = 
   end
 
   def tag

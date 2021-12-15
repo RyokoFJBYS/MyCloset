@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_141151) do
+ActiveRecord::Schema.define(version: 2021_12_15_130519) do
 
   create_table "colors", force: :cascade do |t|
     t.string "name_en"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_141151) do
     t.integer "color_id"
     t.integer "pattern_id"
     t.integer "season_id"
+    t.integer "user_id"
   end
 
   create_table "patterns", force: :cascade do |t|
