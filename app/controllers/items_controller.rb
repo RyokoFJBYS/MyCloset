@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
     @item.save
     redirect_to items_path
   end
@@ -37,7 +38,8 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @results = @d.result
+    @results = @d.result.where(user_id: current_user.id).page(params[:page]).per(10)
+
   end
 
   private

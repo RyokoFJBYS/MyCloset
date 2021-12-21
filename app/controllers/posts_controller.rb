@@ -2,12 +2,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).reverse_order.per(9)
     @tags = Post.tag_counts_on(:tags).most_used(20)
-    @post = 
   end
 
   def tag
     @tags = Post.tag_counts_on(:tags).most_used(20)
-    @post = Post.tagged_with(params[:format]).reverse_order
+    @post = Post.page(params[:page]).tagged_with(params[:format]).reverse_order.per(9)
   end
 
   def show
@@ -22,8 +21,26 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+
     @post.save
+    @post.tags.each do |tag|
+      tag.taggings.last.update(tagger_id: current_user.id)
+    end
     redirect_to posts_path
+  end
+  
+  def my_post_tag
+  
+  
+    posts = current_user.posts.select do |post|
+      post.taggings.any?  do |tagging|
+        tagging.tag.name == params[:format]
+      end
+    end
+    ids = posts.pluck(:id)
+
+    @posts = Post.where(id: ids).page(params[:page]).reverse_order.per(9)
+    @tags = current_user.posts.tag_counts_on(:tags).most_used(20)
   end
 
   def edit

@@ -1,9 +1,10 @@
-<h1 class ="my-3 text-center">Posts</h1>
+<h1 class ="my-3 text-center">MyPoststags</h1>
 
 <div class="d-flex justify-content-center flex-wrap mx-auto width-80">
+
  <% if @tags.present? %>
   <% @tags.each do |tag| %>
-  <%= link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name) %>
+  <%= link_to "#{tag.name}(#{tag.taggings.where(tagger_id: current_user.id).count })", my_post_tag_path(tag.name) %>
   <% end %>
  <% else %>
   登録されているタグはありません
@@ -12,7 +13,6 @@
 
 <div class="d-flex justify-content-around flex-wrap">
  <% @posts.each do |post| %>
- <% if post.user.status == "released" %>
   <div class="text-center my-4 bg-white-all width-30">
     <%= attachment_image_tag post, :image, :fill, 200, 300, class: "mt-4" %>
     <p>Title：<%= link_to post.title, post_path(post.id) %></p>
@@ -20,7 +20,6 @@
     <p>♥<%= post.favorites.count %>Favorite</p>
     <p class="pb-2">User Name：<%= post.user.name %></p>
   </div>
- <% end %>
  <% end %>
 </div>
 

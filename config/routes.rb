@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   resources :posts do
+   
     resource :favorites, only: [:create, :destroy]
   end
   get "tag" => "posts#tag"
+  get "my_post_tag" => "posts#my_post_tag"
 
   devise_for :users
 
