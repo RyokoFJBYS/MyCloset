@@ -23,15 +23,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     @post.save
-    @post.tags.each do |tag|
-      tag.taggings.last.update(tagger_id: current_user.id)
-    end
-    redirect_to posts_path
+    redirect_to user_path(@post.user_id)
   end
-  
+
   def my_post_tag
-  
-  
     posts = current_user.posts.select do |post|
       post.taggings.any?  do |tagging|
         tagging.tag.name == params[:format]

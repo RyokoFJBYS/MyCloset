@@ -14,6 +14,7 @@
     <h3 class="text-center my-4">Posts about <%= "#{params[:format]}" %></h3>
     <div class="d-flex justify-content-around flex-wrap">
       <% @post.each do |post| %>
+      <% if post.user.status == "released" %>
       <div class="text-center my-4 bg-white-all width-30">
         <%= attachment_image_tag post, :image, :fill, 200, 300, class: "mt-4" %>
         <p>Title：<%= link_to post.title, post_path(post.id) %></p>
@@ -22,7 +23,8 @@
         <p class="pb-2">User Name：<%= post.user.name %></p>
       </div>
       <% end %>
+      <% end %>
     </div>
   <% end %>
-  
+
   <div class="d-flex justify-content-center"><%= paginate @post %></div>

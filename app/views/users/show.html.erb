@@ -19,7 +19,7 @@
 
 <h3 class="mt-5">My Post</h3>
 <div class="d-flex justify-content-around flex-wrap">
- <% @myposts.each do |post| %>
+ <% @myposts.first(3).each do |post| %>
   <div class="text-center my-4 bg-white-all width-30">
     <%= attachment_image_tag post, :image, :fill, 200, 300, class: "mt-4" %>
     <p>Title：<%= link_to post.title, post_path(post.id) %></p>
@@ -37,7 +37,7 @@
 
 <h3 class="mt-5">Calendar</h3>
 
-<%= link_to new_post_path, class: "btn  bg-white-all", data: { "turbolinks"=> false } do %>
+<%= link_to new_post_path, class: "btn  bg-white-all my-3", data: { "turbolinks"=> false } do %>
   <i class="fas fa-edit">Add Post</i>
 <% end %>
 

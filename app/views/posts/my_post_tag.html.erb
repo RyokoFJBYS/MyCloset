@@ -1,16 +1,17 @@
-<h1 class ="my-3 text-center">MyPoststags</h1>
+<h1 class ="my-3 text-center">My Posts</h1>
 
 <div class="d-flex justify-content-center flex-wrap mx-auto width-80">
 
  <% if @tags.present? %>
   <% @tags.each do |tag| %>
-  <%= link_to "#{tag.name}(#{tag.taggings.where(tagger_id: current_user.id).count })", my_post_tag_path(tag.name) %>
+  <%= link_to "#{tag.name}(#{tag.taggings.where(taggable_id: current_user.posts.pluck(:id)).count })", my_post_tag_path(tag.name) %>
   <% end %>
  <% else %>
   登録されているタグはありません
  <% end %>
 </div>
 
+<h3 class="text-center my-4">My Posts about <%= "#{params[:format]}" %></h3>
 <div class="d-flex justify-content-around flex-wrap">
  <% @posts.each do |post| %>
   <div class="text-center my-4 bg-white-all width-30">

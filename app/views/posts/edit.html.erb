@@ -27,11 +27,12 @@
       <h5 class="mr-3">Tag</h5>
       <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
     </div>
-  </div>
+
 
     <div class="text-center pb-5">
       <%= f.submit 'Updete', class:"btn btn-blue" %>
       <%= link_to "Delete", post_path(@post), method: :delete, class: "btn mx-5 btn-red" %>
     </div>
   <% end %>
+  </div>
 </div>
