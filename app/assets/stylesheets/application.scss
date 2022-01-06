@@ -24,6 +24,14 @@
   font: 400 100%/1.5em 'Open Sans', sans-serif;
 }
 
+// トップページ
+.toppage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
+}
+
 // 横幅のパーセント
 .width-30 {
   width: 30%;
@@ -42,7 +50,7 @@
 }
 
 .height-320px {
-  height:320px;
+  height: 320px;
 }
 
 // ボタンの色
@@ -94,3 +102,17 @@ body{
   .menu li {
     margin-top:20px;
   }
+
+// スマホ向けレスポンシブ
+@media screen and (max-width: 576px) {
+  *{
+    font-size: 25px;
+  }
+
+  // トップページ
+  .toppage {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
