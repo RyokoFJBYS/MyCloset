@@ -21,9 +21,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-
-    @post.save
-    redirect_to user_path(@post.user_id)
+    if @post.save
+      redirect_to user_path(@post.user_id)
+    else
+      render :new
+    end
   end
 
   def my_post_tag

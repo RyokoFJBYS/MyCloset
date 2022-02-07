@@ -1,51 +1,58 @@
 <div class="bg-white-all width-80 my-5 mx-auto">
   <h2 class ="text-center pt-5 margin-top">New Item</h2>
-  
+
+  <% if @item.errors.any? %>
+    <%= @item.errors.count %>件の未入力があります
+    <% @item.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
   <div class="mx-auto my-4 width-50">
     <%= form_with model: @item, local:true do |f| %>
-    
+
       <div class="field form-inline">
         <h5 class="mr-3">Name</h5>
         <%= f.text_field :name %>
       </div>
-      
+
       <div class="field form-inline">
         <h5 class="mr-3">Image</h5>
         <%= f.attachment_field :image %>
       </div>
-      
+
       <div class="field form-inline">
         <h5 class="mr-3">Introduction</h5>
         <%= f.text_area :introduction %>
       </div>
-      
+
       <div class="field form-inline">
         <h5 class="mr-3">Type</h5>
         <%= f.select :type, options_for_select(Type.all.pluck("name_#{I18n.locale}, id"), @item.type_id), { include_blank: '-- 選択してください --'} %>
       </div>
-      
+
       <div class="field form-inline">
         <h5 class="mr-3">Color</h5>
         <%= f.select :color, options_for_select(Color.all.pluck("name_#{I18n.locale}, id"), @item.color_id), { include_blank: '-- 選択してください --'} %>
       </div>
-    
+
       <div class="field form-inline">
         <h5 class="mr-3">Pattern</h5>
         <%= f.select :pattern, options_for_select(Pattern.all.pluck("name_#{I18n.locale}, id"), @item.pattern_id), { include_blank: '-- 選択してください --'} %>
       </div>
-      
+
       <div class="field form-inline">
         <h5 class="mr-3">Season</h5>
         <%= f.select :season, options_for_select(Season.all.pluck("name_#{I18n.locale}, id"), @item.season_id), { include_blank: '-- 選択してください --'} %>
       </div>
-      
+
       <div class="text-center pb-5">
         <button type="submit" class="btn btn-green">
           Create
         </button>
         <%= link_to "Back", request.referer, class: "btn mx-5 btn-red"%>
       </div>
-      
+
 
     <% end %>
   </div>

@@ -1,5 +1,13 @@
 <div class="bg-white-all width-80 my-5 mx-auto">
   <h2 class ="text-center pt-5 margin-top">New Post</h2>
+
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件の未入力があります
+    <% @post.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
   <div class="mx-auto my-4 width-50">
     <%= form_with model: @post, local:true do |f| %>
 
