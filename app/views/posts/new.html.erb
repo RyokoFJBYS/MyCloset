@@ -33,7 +33,7 @@
 
     <div class="field form-inline">
       <h5 class="mr-3">Tag</h5>
-      <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
+      <%= f.text_field :tag_list, value: @post.tag_list.join(','),  placeholder: "例: デート,ランチ" %>
     </div>
   </div>
 
