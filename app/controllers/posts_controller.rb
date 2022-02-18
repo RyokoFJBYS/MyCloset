@@ -43,6 +43,10 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @tags = @post.tag_counts_on(:tags)
+    @user = @post.user
+    if @user != current_user
+      redirect_to posts_path
+    end
   end
 
   def update
