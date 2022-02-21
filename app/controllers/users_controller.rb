@@ -14,11 +14,14 @@ class UsersController < ApplicationController
   def myposts
     @posts = current_user.posts.page(params[:page]).reverse_order.per(9)
     @tags = current_user.posts.tag_counts_on(:tags).most_used(20)
-  
+
   end
 
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
