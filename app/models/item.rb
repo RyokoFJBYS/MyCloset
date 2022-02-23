@@ -11,4 +11,9 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :image, presence: true
+  validates :type, presence: true
+  validates :color, presence: true
+  validates :pattern, presence: true
+  validates :season, presence: true
+
 end

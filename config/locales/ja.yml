@@ -24,50 +24,16 @@ ja:
         released: '公開'
         nonreleased: '非公開'
 
-    # item:
-    #   type:
-    #     bottoms: 'ボトムス'
-    #     tops: 'トップス'
-    #     allinone: 'オールインワン'
-    #     outer: 'アウター'
-    #   color:
-    #     black: '黒色系'
-    #     white: '白色系'
-    #     red: '赤色系'
-    #     orange: '橙色系'
-    #     yellow: '黄色系'
-    #     yellow_green: '黄緑色系'
-    #     green: '緑色系'
-    #     light_blue: '水色系'
-    #     blue: '青色系'
-    #     navy: '紺色系'
-    #     purple: '紫色系'
-    #     pink: '桃色系'
-    #     brown: '茶色系'
-    #     gray: 'グレー系'
-    #     beige: 'ベージュ系'
-    #     colorful: 'カラフル'
-    #     other_color: 'その他'
-    #   pattern:
-    #     plain: '無地'
-    #     plaid: 'チェック'
-    #     flower: '花柄'
-      #   dot: 'ドット'
-      #   stripe: 'ストライプ'
-      #   border: 'ボーダー'
-      #   camouflage: 'カモフラージュ'
-      #   animal: 'アニマル柄'
-      #   illustration: 'イラスト'
-      #   paisley: 'ペイズリー'
-      #   botanical: 'ボタニカル'
-      #   herringbone: 'ヘリンボーン'
-      #   native: 'ネイティブ'
-      #   houndstooth: '千鳥格子'
-      #   geometry: '幾何学模様'
-      #   other_pattern: 'その他'
-      # season:
-      #   spring: '春'
-      #   summer: '夏'
-      #   autumn: '秋'
-      #   winter: '冬'
-      #   all_season: 'All'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "空欄です"
+            password:
+              blank: "空欄です"
+  errors:
+    messages:
+      record_invalid: "error"
+      not_saved: "保存できませんでした"
