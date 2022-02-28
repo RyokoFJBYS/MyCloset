@@ -37,3 +37,15 @@ ja:
     messages:
       record_invalid: "error"
       not_saved: "保存できませんでした"
+
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "空欄です"
+            body:
+              blank: "空欄です"
+            image:
+              blank: "空欄です"
