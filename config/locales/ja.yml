@@ -49,3 +49,13 @@ ja:
               blank: "空欄です"
             image:
               blank: "空欄です"
+
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              blank: "空欄です"
+            image:
+              blank: "空欄です"
