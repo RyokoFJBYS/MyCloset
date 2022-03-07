@@ -13,7 +13,9 @@
     <%= f.collection_select :pattern_name_ja_eq, Pattern.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
     <%= f.label :season, 'Season' %>
     <%= f.collection_select :season_name_ja_eq, Season.all, :name_ja, :name_ja,  include_blank: '指定なし' %>
+    <br/>
     <%= f.submit 'Search' %>
+    <%= link_to "Clear", request.path, class: "btn btn-outline-secondary btn-xs"%>
   <% end %>
 </div>
 
